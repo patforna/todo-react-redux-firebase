@@ -1,25 +1,10 @@
 import React from 'react'
+import AddTodoContainer from '../containers/AddTodoContainer'
 
-const ENTER_KEY = 13
-
-const Header = ({onTodoAdd}) => (
-
+const Header = () => (
   <header className="header">
     <h1>TODO</h1>
-    <input
-      className="new-todo"
-      placeholder="What needs to be done?"
-      autoFocus={true}
-      onKeyDown={e => {
-        let input = e.target.value.trim()
-    		if (e.keyCode !== ENTER_KEY || !input) {
-    			return
-    		}
-		    e.preventDefault()
-        onTodoAdd(input)
-        e.target.value = ''
-      }}
-    />
+    <AddTodoContainer />
   </header>
 )
 

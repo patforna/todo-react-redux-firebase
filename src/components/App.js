@@ -1,11 +1,11 @@
 import React from 'react';
-import HeaderContainer from '../containers/HeaderContainer';
+import Header from '../components/Header';
 import TodoListContainer from '../containers/TodoListContainer';
 import '../App.css';
 
 const App = () => (
   <div>
-    <HeaderContainer />
+    <Header />
     <TodoListContainer />
   </div>
 )
