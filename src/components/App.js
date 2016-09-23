@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './components/Header';
-import TodoListContainer from './containers/TodoListContainer';
-import './App.css';
+import Header from './Header';
+import TodoListContainer from '../containers/TodoListContainer';
+import '../App.css';
 
 const App = () => (
   <div>
