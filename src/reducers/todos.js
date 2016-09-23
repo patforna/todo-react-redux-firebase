@@ -1,25 +1,18 @@
 const todo = (state = {}, action) => {
   switch (action.type) {
     case 'ADD_TODO':
-      return {
-        id: action.id,
-        text: action.text,
-        completed: false
-      }
+      return { id: action.id, text: action.text, completed: false }
     case 'TOGGLE_TODO':
-      // TODO is this needed, i.e. how could this ever be true?
-      if (state.id !== action.id) {
-        return state
+      if (state.id === action.id) {
+        return Object.assign({}, state, { completed: !state.completed })
       }
-
-      return Object.assign({}, state, { completed: !state.completed })
-
+      return state
     default:
       return state
   }
 }
 
-const todos = (state = [{id: 1, completed: false, text: 'Strawberry'}], action) => {
+const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [...state, todo(undefined, action)]
