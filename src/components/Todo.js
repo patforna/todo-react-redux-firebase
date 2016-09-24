@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 import classNames from 'classnames';
 
-const Todo = ({onClick, completed, text}) => (
+const Todo = ({text, completed, onClick, onDelete}) => (
   <li className={classNames({completed: completed})}>
     <div className="view">
       <input
@@ -12,15 +12,16 @@ const Todo = ({onClick, completed, text}) => (
       <label>
         {text}
       </label>
-      <button className="destroy" onClick={() => true}/>
+      <button className="delete" onClick={onDelete}/>
     </div>
   </li>
 )
 
 Todo.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
   completed: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
+  onClick: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired
 }
 
 export default Todo

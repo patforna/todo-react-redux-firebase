@@ -1,23 +1,20 @@
-const todo = (state = {}, action) => {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return { id: action.id, text: action.text, completed: false }
-    case 'TOGGLE_TODO':
-      if (state.id === action.id) {
-        return Object.assign({}, state, { completed: !state.completed })
-      }
-      return state
-    default:
-      return state
-  }
-}
-
 const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
-      return [...state, todo(undefined, action)]
+      return [...state, { id: action.id, text: action.text, completed: false }]
+
     case 'TOGGLE_TODO':
-      return state.map(t => todo(t, action))
+      return state.map(t => {
+        if (t.id === action.id) {
+          return Object.assign({}, t, { completed: !t.completed })
+        }
+        return t
+      })
+
+    case 'DELETE_TODO':
+      let index = state.findIndex(t => t.id === action.id)
+      return [...state.slice(0, index), ...state.slice(index + 1)]
+
     default:
       return state
   }

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import Todo from './Todo'
 
-const TodoList = ({ todos, onTodoClick }) => (
+const TodoList = ({ todos, onTodoClick, onTodoDelete }) => (
   <section className="main">
     <ul className="todo-list">
     {todos.map(todo =>
@@ -9,6 +9,7 @@ const TodoList = ({ todos, onTodoClick }) => (
         key={todo.id}
         {...todo}
         onClick={() => onTodoClick(todo.id)}
+        onDelete={() => onTodoDelete(todo.id)}
         />
         )}
     </ul>
@@ -18,10 +19,11 @@ const TodoList = ({ todos, onTodoClick }) => (
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired,
-    text: PropTypes.string.isRequired
   }).isRequired).isRequired,
-  onTodoClick: PropTypes.func.isRequired
+  onTodoClick: PropTypes.func.isRequired,
+  onTodoDelete: PropTypes.func.isRequired
 }
 
 export default TodoList
