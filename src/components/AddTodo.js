@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 const ENTER_KEY = 13
 
-const AddTodo = ({onTodoAdd}) => (
+const AddTodo = ({onAdd}) => (
   <input
     className="new-todo"
     placeholder="What needs to be done?"
@@ -13,10 +13,15 @@ const AddTodo = ({onTodoAdd}) => (
   			return
   		}
 	    e.preventDefault()
-      onTodoAdd(input)
+      onAdd(input)
       e.target.value = ''
     }}
   />
 )
+
+AddTodo.propTypes = {
+  onAdd: PropTypes.func.isRequired
+}
+
 
 export default AddTodo
