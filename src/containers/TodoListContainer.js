@@ -5,7 +5,6 @@ import TodoList from '../components/TodoList'
 
 class TodoListContainer extends Component {
   componentDidMount() {
-    console.log('did mount');
     this.props.loadTodos();
   }
 

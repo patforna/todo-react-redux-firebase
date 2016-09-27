@@ -8,7 +8,7 @@ const TodoList = ({ todos, onToggle, onDelete }) => (
         <Todo
         key={todo.id}
         {...todo}
-        onToggle={() => onToggle(todo.id)}
+        onToggle={() => onToggle(todo.id, todo.completed)}
         onDelete={() => onDelete(todo.id)}
         />
         )}
