@@ -1,22 +1,27 @@
+import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import {toggleTodo, deleteTodo} from '../actions'
+import * as actions from '../actions'
 import TodoList from '../components/TodoList'
 
-const mapStateToProps = (state) => {
-  return { todos: state.todos }
-}
+class TodoListContainer extends Component {
+  componentDidMount() {
+    console.log('did mount');
+    this.props.loadTodos();
+  }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onToggle: (id) => {
-      dispatch(toggleTodo(id))
-    },
-    onDelete: (id) => {
-      dispatch(deleteTodo(id))
-    }
+  render() {
+    const { todos, toggleTodo, deleteTodo } = this.props;
+    return (<TodoList
+              todos={todos}
+              onToggle={toggleTodo}
+              onDelete={deleteTodo}/>);
   }
 }
 
-const TodoListContainer = connect(mapStateToProps, mapDispatchToProps)(TodoList)
+const mapStateToProps = (state) => ({
+  todos: state.todos
+});
+
+TodoListContainer = connect(mapStateToProps, actions)(TodoListContainer)
 
 export default TodoListContainer

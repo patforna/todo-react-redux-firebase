@@ -2,14 +2,6 @@ import {connect} from 'react-redux'
 import {addTodo} from '../actions'
 import AddTodo from '../components/AddTodo'
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onAdd: (text) => {
-      dispatch(addTodo(text))
-    }
-  }
-}
-
-const AddTodoContainer = connect(undefined, mapDispatchToProps)(AddTodo)
+const AddTodoContainer = connect(null, {onAdd: addTodo})(AddTodo)
 
 export default AddTodoContainer

@@ -1,13 +1,13 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import reducers from './reducers'
 import App from './components/App'
+import configureStore from './configureStore';
+import configureFirebase from './configureFirebase';
 import './index.css';
 
-// let store = createStore(todoApp)
-let store = createStore(reducers, window.devToolsExtension && window.devToolsExtension());
+configureFirebase();
+const store = configureStore();
 
 render(
   <Provider store={store}>
