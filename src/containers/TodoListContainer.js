@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
-import * as actions from '../actions'
-import TodoList from '../components/TodoList'
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import TodoList from '../components/TodoList';
 
 class TodoListContainer extends Component {
   componentDidMount() {
@@ -11,16 +11,17 @@ class TodoListContainer extends Component {
   render() {
     const { todos, toggleTodo, deleteTodo } = this.props;
     return (<TodoList
-              todos={todos}
-              onToggle={toggleTodo}
-              onDelete={deleteTodo}/>);
+      todos={todos}
+      onToggle={toggleTodo}
+      onDelete={deleteTodo}
+    />);
   }
 }
 
-const mapStateToProps = (state) => ({
-  todos: state.todos
+const mapStateToProps = state => ({
+  todos: state.todos,
 });
 
-TodoListContainer = connect(mapStateToProps, actions)(TodoListContainer)
+TodoListContainer = connect(mapStateToProps, actions)(TodoListContainer);
 
-export default TodoListContainer
+export default TodoListContainer;

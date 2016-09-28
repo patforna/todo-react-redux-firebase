@@ -8,6 +8,6 @@ const App = () => (
     <Header />
     <TodoListContainer />
   </div>
-)
+);
 
 export default App;

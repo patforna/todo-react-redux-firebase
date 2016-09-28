@@ -1,20 +1,20 @@
-import React, { PropTypes } from 'react'
-import Todo from './Todo'
+import React, { PropTypes } from 'react';
+import Todo from './Todo';
 
 const TodoList = ({ todos, onToggle, onDelete }) => (
   <section className="main">
     <ul className="todo-list">
-    {todos.map(todo =>
+      {todos.map(todo =>
         <Todo
-        key={todo.id}
-        {...todo}
-        onToggle={() => onToggle(todo.id, todo.completed)}
-        onDelete={() => onDelete(todo.id)}
+          key={todo.id}
+          {...todo}
+          onToggle={() => onToggle(todo.id, todo.completed)}
+          onDelete={() => onDelete(todo.id)}
         />
-        )}
+      )}
     </ul>
   </section>
-)
+);
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
@@ -23,7 +23,7 @@ TodoList.propTypes = {
     completed: PropTypes.bool.isRequired,
   }).isRequired).isRequired,
   onToggle: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired
-}
+  onDelete: PropTypes.func.isRequired,
+};
 
-export default TodoList
+export default TodoList;

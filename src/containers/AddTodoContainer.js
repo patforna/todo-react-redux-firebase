@@ -1,7 +1,7 @@
-import {connect} from 'react-redux'
-import {addTodo} from '../actions'
-import AddTodo from '../components/AddTodo'
+import { connect } from 'react-redux';
+import { addTodo } from '../actions';
+import AddTodo from '../components/AddTodo';
 
-const AddTodoContainer = connect(null, {onAdd: addTodo})(AddTodo)
+const AddTodoContainer = connect(null, { onAdd: addTodo })(AddTodo);
 
-export default AddTodoContainer
+export default AddTodoContainer;

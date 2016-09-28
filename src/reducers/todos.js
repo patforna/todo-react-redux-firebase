@@ -1,10 +1,10 @@
 const todos = (state = [], action) => {
   switch (action.type) {
     case 'LOAD_TODOS':
-      return action.todos
+      return action.todos;
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default todos
+export default todos;
