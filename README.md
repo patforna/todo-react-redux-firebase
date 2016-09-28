@@ -32,8 +32,8 @@ firebase deploy
 
 ## TODO
 
-[ ] style for mobile
-[ ] remove css vendor prefixes
-[ ] look into EsLint / Airbnb style
-[ ] look into normalizr
-[ ] write some tests
+- [ ] style for mobile
+- [ ] remove css vendor prefixes
+- [ ] look into EsLint / Airbnb style
+- [ ] look into normalizr
+- [ ] write some tests
