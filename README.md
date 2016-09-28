@@ -9,6 +9,8 @@ A simple [TodoMVC](http://todomvc.com) app to experiment with some new tech, inc
 - Redux 3.6
 - Firebase 3.4
 
+See here for [hosted sample app](https://todo-43b4e.firebaseapp.com).
+
 ## Usage
 
 Development:
