@@ -8,7 +8,7 @@ class TodoListContainer extends Component {
     this.props.loadTodos();
   }
 
-  render() {
+  render() {    
     const { todos, toggleTodo, deleteTodo } = this.props;
     return (<TodoList
       todos={todos}

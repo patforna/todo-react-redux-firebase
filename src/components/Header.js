@@ -2,7 +2,7 @@ import React from 'react';
 import AddTodoContainer from '../containers/AddTodoContainer';
 
 const Header = () => (
-  <header className="header">
+  <header>
     <h1>TODO</h1>
     <AddTodoContainer />
   </header>

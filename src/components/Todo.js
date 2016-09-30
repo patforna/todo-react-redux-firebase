@@ -1,20 +1,18 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 
-const Todo = ({ text, completed, onToggle, onDelete }) => (
-  <li className={classNames({ completed })}>
-    <div className="view">
-      <input
-        className="toggle"
-        type="checkbox"
-        checked={completed}
-        onChange={onToggle}
-      />
-      <label>
-        {text}
-      </label>
-      <button className="delete" onClick={onDelete} />
-    </div>
+const Todo = ({ id, text, completed, onToggle, onDelete }) => (
+  <li>
+    <input
+      id={id}
+      className="toggle"
+      type="checkbox"
+      checked={completed}
+      onChange={onToggle}
+    />
+    <label htmlFor={id}>
+      {text}
+    </label>
+    <button className="delete" onClick={onDelete} />
   </li>
 );
 

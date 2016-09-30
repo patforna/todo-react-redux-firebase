@@ -1,19 +1,19 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import Todo from './Todo';
 
 const TodoList = ({ todos, onToggle, onDelete }) => (
-  <section className="main">
-    <ul className="todo-list">
-      {todos.map(todo =>
-        <Todo
-          key={todo.id}
-          {...todo}
-          onToggle={() => onToggle(todo.id, todo.completed)}
-          onDelete={() => onDelete(todo.id)}
-        />
-      )}
-    </ul>
-  </section>
+  <ul className={classNames('todo-list', { hidden: todos.length === 0 })}>
+    {todos.map(todo =>
+      <Todo
+        key={todo.id}
+        id={todo.id}
+        {...todo}
+        onToggle={() => onToggle(todo.id, todo.completed)}
+        onDelete={() => onDelete(todo.id)}
+      />
+    )}
+  </ul>
 );
 
 TodoList.propTypes = {
