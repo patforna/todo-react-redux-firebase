@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 import Todo from './Todo';
 
 const TodoList = ({ todos, onToggle, onDelete }) => (
-  <ul className={classNames('todo-list', { hidden: todos.length === 0 })}>
+  <ul className="todo-list">
     {todos.map(todo =>
       <Todo
         key={todo.id}

@@ -9,7 +9,8 @@ const Todo = ({ id, text, completed, onToggle, onDelete }) => (
       checked={completed}
       onChange={onToggle}
     />
-    <label htmlFor={id}>
+    <label htmlFor={id} className="checkbox" />
+    <label htmlFor={id} className="text">
       {text}
     </label>
     <button className="delete" onClick={onDelete} />

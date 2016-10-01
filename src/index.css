@@ -1,63 +1,80 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-@import 'https://fonts.googleapis.com/css?family=Roboto:300,900';
+* {
+    box-sizing: border-box;
+}
 
 body {
-    margin: 0 auto;
-    max-width: 580px;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
+    width: 100%;
     color: #333;
-    background-color: #fafafa;
-    /* line-height: 1.5; */
+    background-color: #fff;
+    font-size: 16px;
+    font-family: -apple-system, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+@media (min-width: 668px) {
+    body {
+        margin: 0 auto;
+        max-width: 668px;
+        background-color: #f5f5f5;
+        font-size: 20px;
+    }
 }
 
 h1 {
-    color: #000;
     font-weight: 900;
-    font-size: 4em;
+    font-size: 1.999em;
     margin: 0;
 }
 
-input, button:focus {
-  outline:0;
+header {
+    padding: 0.3em 0.8em;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ececec;
 }
 
-.hidden {
-  display: none;
+@media (min-width: 668px) {
+    header {
+      padding-left: 0;
+    }
+}
+
+input, button:focus {
+    outline: 0;
+}
+
+.main {
+    border-bottom: 1px solid #ececec;
+}
+
+@media (min-width: 668px) {
+    .main {
+        background-color: #fff;
+        border: 1px solid #ececec;
+        border-radius: .28571429rem;
+    }
 }
 
 .new-todo {
     margin: 0;
-    padding: 16px 16px 16px 16px;
+    padding: 0.8em;
     width: 100%;
-    font-size: 1.5em;
-    line-height: 1.4em;
-    border: 1px solid #ececec;
-    border-radius: .28571429rem;
-    background-color: #fff;
-    box-sizing: border-box;
+    border: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 .todo-list {
-    margin: 8px 0;
+    margin: 0;
     padding: 0;
-    background-color: #fff;
-    border-radius: .28571429rem;
-    border: 1px solid #ececec;
     list-style: none;
 }
 
 .todo-list li {
-    position: relative;
-    font-size: 1.5em;
-    border-bottom: 1px solid #ededed;
-    padding: 16px;
-}
-
-.todo-list li label {
-    padding-left: 30px
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ececec;
+    padding: 0.7em;
 }
 
 
@@ -67,48 +84,63 @@ input[type=checkbox] {
     display: none;
 }
 
-input[type=checkbox]+label {
+input[type=checkbox]~label {
     cursor: pointer;
 }
 
-input[type=checkbox]+label:before {
+input[type=checkbox]:not(:checked)+.checkbox:before {
     font-family: FontAwesome;
-    display: inline-block;
-    position: absolute;
-    left: 16px;
-    top: 18px;    
-}
-
-input[type=checkbox]:not(:checked)+label:before {
     content: "\f096";
 }
 
-input[type=checkbox]:checked+label:before {
+input[type=checkbox]:checked+.checkbox:before {
+    font-family: FontAwesome;
     content: "\f046";
 }
 
-input[type=checkbox]:checked+label {
+input[type=checkbox]:checked~label {
     text-decoration: line-through;
     color: #d9d9d9;
+}
+
+input[type=checkbox]:checked+.checkbox {
+    text-decoration: none;
+}
+
+label.checkbox {
+    /* just pushing it down icon slightly */
+    padding-top: 0.1em;
+    width: 1.25em;
+}
+
+label.text {
+    /* let text take all remaining space */
+    flex: 1;
 }
 
 
 /* delete button */
 
 .todo-list li .delete {
-    display: none;
+    display: block;
     margin: 0;
     padding: 0;
     border: 0;
     background: none;
-    position: absolute;
-    right: 30px;
-    top: 11px;
-    width: 40px;
-    height: 40px;
-    color: #bf9999;
-    margin-bottom: 20px;
-    transition: color 0.2s ease-out;
+    color: #999;
+}
+
+@media (min-width: 668px) {
+    .todo-list li .delete {
+        display: none;
+        color: #f5f5f5;
+    }
+    .todo-list li:hover .delete {
+        display: block;
+    }
+    .todo-list li .delete:hover {
+        color: #333;
+    }
 }
 
 .todo-list li .delete:after {
@@ -116,14 +148,6 @@ input[type=checkbox]:checked+label {
     content: '\f00d';
 }
 
-.todo-list li .delete:hover {
-    color: #bf2222;
-}
-
 .todo-list li .delete:focus {
     outline: 0;
-}
-
-.todo-list li:hover .delete {
-    display: block;
 }

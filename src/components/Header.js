@@ -1,10 +1,8 @@
 import React from 'react';
-import AddTodoContainer from '../containers/AddTodoContainer';
 
 const Header = () => (
   <header>
-    <h1>TODO</h1>
-    <AddTodoContainer />
+    <h1>todo</h1>
   </header>
 );
 
