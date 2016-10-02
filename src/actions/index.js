@@ -9,7 +9,7 @@ export const loadTodos = () => dispatch => (
   db().limitToLast(10).on('value', (snap) => {
     // FIXME use normalizr
     const data = snap.val();
-    const todos = Object.keys(data).map(k => (
+    const todos = Object.keys(data || []).map(k => (
       { id: k, text: data[k].text, completed: data[k].completed }
     ));
     dispatch({ type: 'LOAD_TODOS', todos });
